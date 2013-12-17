@@ -1,5 +1,5 @@
-Math 127 - Assignment 10
-Jacob Denson
+Computer Science Problem Set #3
+Alan Turing
 1
 a
 b
