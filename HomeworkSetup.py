@@ -2,9 +2,6 @@ import time
 import calendar
 import re
 
-# All whitespace to be stripped from beginning and end of a line
-TO_STRIP = ' .()[]\n'
-
 # Class of latex document to create
 DOCUMENT_CLASS = 'article'
 
@@ -17,6 +14,10 @@ PACKAGE_LIST = ['amsmath',   # For advanced latex math
 TEXT_SIZE = '12pt'
 LINE_SPACING = '16pt'
 
+# All whitespace to be stripped from beginning and end of a line
+#       For example '(a)'' becomes 'a' with () in TO_STRIP.
+TO_STRIP = ' .()[]\n'
+
 # Regular expressions to recognize enumerations for lists, sorted by importance
 ENUMERATION_STYLES = [r'^[0-9]+$',    # Numeric Indexing (1. 27. 100. etc)
                       r'^[a-z]$',     # Alphabetized Indexing (a. q. z. etc)
@@ -26,6 +27,7 @@ ENUMERATION_STYLES = [r'^[0-9]+$',    # Numeric Indexing (1. 27. 100. etc)
 
 
 
+# Formatting Functions
 
 def read_and_strip_line(file_to_read):
     ''' reads line from a file and returns it with whitespace stripped '''
@@ -35,7 +37,7 @@ def read_and_strip_line(file_to_read):
 def get_formatted_time(current_time):
     ''' Returns a Formatted latex date string using a time.struct_time '''
 
-    # Example String: '15 November 2013'
+    # Example String Output: '15 November 2013'
     return '%i %s %i' %(current_time.tm_mday,
                         calendar.month_name[current_time.tm_mon],
                         current_time.tm_year)
@@ -43,6 +45,8 @@ def get_formatted_time(current_time):
 
 
 
+
+# File Output Functions
 
 def write_packages(my_file, packages):
     ''' Writes all required latex packages to the latex document '''
@@ -99,7 +103,8 @@ def write_enumerations(input_file, output_file, enumeration_styles):
 
 
 def format_latex_document(output_file_name):
-    ''' Formats latex file for homework, with itemized lists based on input '''
+    ''' Main function, which Formats latex file for homework,
+        with itemized lists based on input '''
 
     # Open the input and output files for reading and writing
     input_file = open('input.txt', 'r')
