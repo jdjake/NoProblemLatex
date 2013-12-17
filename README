@@ -29,7 +29,7 @@ How to use
 ----------
 
 Add your enumerations to an input.txt file, with first line
-detailing your name, second line the title of your assignment,
+detailing your assignment title, second line your name,
 and all further lines detailing the problem numbers for your
 assignment. Here's an example:
 
